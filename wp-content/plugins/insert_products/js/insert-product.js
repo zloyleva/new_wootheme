@@ -27,6 +27,12 @@
                 		$('.get_price_file').prop('disabled', true);
                 		$("input[value='Upload price']").prop('disabled', true).removeClass('button-primary').addClass('button-default');
                 		$('.show_results').append('<p><input type="button" class="button button-primary insert_products" value="Parsed price file"></p>')
+                	},
+                	error:function(jqXHR, textStatus, errorThrown) {
+        				console.log('error[' + errorThrown + '], status[' + textStatus + '], jqXHR[]');
+                	},
+                	fail:function(jqXHR, textStatus, errorThrown) {
+        				console.log('error[' + errorThrown + '], status[' + textStatus + '], jqXHR[]');                		
                 	}
 				});
 			}
