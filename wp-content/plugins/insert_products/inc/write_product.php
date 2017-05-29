@@ -51,7 +51,7 @@ class WriteProduct
 
         if( $product_id ) :
             $this->set_productmeta( $product_id, $product, $product_cat_id['ID'] );
-            $returned_data['attach'] = ProductImage::pass_image( $product['sku'], $product_id );// Todo add image
+            // $returned_data['attach'] = ProductImage::pass_image( $product['sku'], $product_id );// Todo add image
         else:
             $returned_data['error'] = 'Error insert/update product. Don"t get $product_id';//Error insert/update product
         endif;
