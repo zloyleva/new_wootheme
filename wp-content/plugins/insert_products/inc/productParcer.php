@@ -36,10 +36,9 @@ class productParser{
 				if(1 == $filled_cell){
 					$get_category_data = productParser::get_space_data($temp);
 					$categories[$get_category_data['position']] = $get_category_data['value'];
-
-					$result['product_insert'][] = array('categories_temp' => $categories);
-
 					$categories = array_slice($categories, 0, $get_category_data['position']+1);
+
+					$result['product_insert'][] = array( 'lenght'=>$get_category_data['position']+1 ,'categories_temp' => $categories);
 				}
 				if ($filled_cell >= 4) {
 
