@@ -53,7 +53,7 @@
 				data: data,
 				success: function(response){
 
-					// console.log(response);
+					console.log(response);
 					
 					$("input[value='Parsed price file']").prop('disabled', true).removeClass('button-primary').addClass('button-default');
 					$('.show_results').append('<div class="spiner"><i class="fa fa-spinner fa-spin" aria-hidden="true"></i></div>').append('<div class="product-count"></div>');

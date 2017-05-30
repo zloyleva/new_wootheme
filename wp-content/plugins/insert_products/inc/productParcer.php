@@ -61,9 +61,11 @@ class productParser{
 
 					$product['categories'] = $categories_temp;
 					$result['products'][] = $product;
+
+					$result['product_insert'][] = array( 'name' => $product['name'] ,'categories_temp' => $categories_temp);
 				}
 
-				// $result['filled_cell'][] = $temp;
+				// $result['product_insert'][] = array( 'name' => $product['name'] ,'categories_temp' => $categories_temp);
 			}
 		}
 
