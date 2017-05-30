@@ -36,6 +36,9 @@ class productParser{
 				if(1 == $filled_cell){
 					$get_category_data = productParser::get_space_data($temp);
 					$categories[$get_category_data['position']] = $get_category_data['value'];
+
+					$result['product_insert'][] = array('categories_temp' => $categories);
+
 					$categories = array_slice($categories, 0, $get_category_data['position']+1);
 				}
 				if ($filled_cell >= 4) {
@@ -62,7 +65,7 @@ class productParser{
 					$product['categories'] = $categories_temp;
 					$result['products'][] = $product;
 
-					$result['product_insert'][] = array( 'name' => $product['name'] ,'categories_temp' => $categories_temp);
+
 				}
 
 				// $result['product_insert'][] = array( 'name' => $product['name'] ,'categories_temp' => $categories_temp);
