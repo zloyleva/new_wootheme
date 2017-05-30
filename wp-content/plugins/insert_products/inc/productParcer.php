@@ -97,7 +97,7 @@ class productParser{
 				case 'Номенклатура.Дополнительное описание номенклатуры':
 					productParser::$price_keys['short_desc'] = $i;
 					break;
-				case '1. Розница':
+				case ('1. Розница' || '3. Опт безналичные' || '4. VIP' || '8. опт'):
 					productParser::$price_keys['price'] = $i;
 					break;
 			}
