@@ -51,6 +51,10 @@ class DeleteAllProducts {
         }
 
         // Prepare query for SQL
+
+        $sql_00 = "DELETE FROM {$this->db->postmeta} WHERE post_id IN (SELECT ID FROM {$this->db->posts} where post_parent IN (SELECT ID FROM {$this->db->posts} WHERE post_type = '%s'))";
+        $sql_0 = "DELETE FROM {$this->db->posts} where post_parent IN (SELECT ID FROM {$this->db->posts} WHERE post_type = '%s')";
+
         $sql_1 = "DELETE FROM {$this->db->term_relationships} WHERE object_id IN (SELECT ID FROM {$this->db->posts} WHERE post_type = '%s')";
         $sql_2 = "DELETE FROM {$this->db->postmeta} WHERE post_id IN (SELECT ID FROM {$this->db->posts} WHERE post_type = '%s')";
         $sql_3 = "DELETE FROM {$this->db->posts} WHERE post_type = '%s'";
@@ -58,6 +62,9 @@ class DeleteAllProducts {
         $sql_5 = "DELETE FROM {$this->db->term_taxonomy} WHERE taxonomy='%s'";
 
         // Do SQL query
+        $x00 = $this->db->query( $this->db->prepare( $sql_00, $post_type) );
+        $x0 = $this->db->query( $this->db->prepare( $sql_0, $post_type) );
+
         $x1 = $this->db->query( $this->db->prepare( $sql_1, $post_type) );
         $x2 = $this->db->query( $this->db->prepare( $sql_2, $post_type) );
         $x3 = $this->db->query( $this->db->prepare( $sql_3, $post_type) );
